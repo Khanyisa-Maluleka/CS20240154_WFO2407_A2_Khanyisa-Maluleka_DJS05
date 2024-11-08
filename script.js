@@ -6,10 +6,6 @@ function getState() {
 
 let subscribers = [];
 
-function subscribe(subscriber) {
-    subscribers.push(subscriber)
-}
-
 const actions = {increment : 'INCREMENT',
     decrement : 'DECREMENT',
     reset : 'RESET'
@@ -17,16 +13,26 @@ const actions = {increment : 'INCREMENT',
 
 console.log(getState())
 
-function tallyApp() {
-    switch (actions.state) {
-        case "INCREMENT" :
+function tallyApp(action) {
+    switch (actions.type) {
+        case actions.increment :
             return state++;
-        case "DECREMENT" :
+        case actions.decrement :
             return state--;
-        case "RESET" :
-            return state == 0;
+        case actions.reset :
+            return state = 0;
         default:
             return state;
     }
+
+    subscribers.forEach(subscriber => subscriber());
+}
+
+function subscribe(subscriber) {
+    subscribers.push(subscriber)
+}
+
+function dispatch(action) {
+    tallyApp(action)
 }
 
