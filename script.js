@@ -12,11 +12,14 @@ const actions = {type : 'INCREMENT',
 console.log(getState())
 
 function tallyApp() {
-    switch (action.state) {
+    switch (actions.state) {
         case "INCREMENT" :
             return state++;
         case "DECREMENT" :
             return state--;
-        
+        case "RESET" :
+            return state == 0;
+        default:
+            return state;
     }
 }
