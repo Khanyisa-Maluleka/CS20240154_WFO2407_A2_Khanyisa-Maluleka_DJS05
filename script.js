@@ -7,7 +7,11 @@ function getState() {
 console.log(getState())
 
 function increment() {
-    return state++
+    return state++;
+}
+
+function decrement() {
+    return state--;
 }
 
 increment()
