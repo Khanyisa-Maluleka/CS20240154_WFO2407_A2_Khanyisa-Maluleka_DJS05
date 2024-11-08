@@ -4,9 +4,11 @@ function getState() {
     return state
 }
 
-const actions = {type : 'INCREMENT',
-    type : 'DECREMENT',
-    type : 'RESET'
+let listeners = [];
+
+const actions = {increment : 'INCREMENT',
+    decrement : 'DECREMENT',
+    reset : 'RESET'
 }
 
 console.log(getState())
@@ -23,3 +25,4 @@ function tallyApp() {
             return state;
     }
 }
+
