@@ -13,6 +13,7 @@ console.log(getState())
 
 function tallyApp() {
     switch (action.state) {
-        case ""
+        case "INCREMENT" :
+            return state++;
     }
 }
