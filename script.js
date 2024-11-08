@@ -4,7 +4,11 @@ function getState() {
     return state
 }
 
-let listeners = [];
+let subscribers = [];
+
+function subscribe(subscriber) {
+    subscribers.push(subscriber)
+}
 
 const actions = {increment : 'INCREMENT',
     decrement : 'DECREMENT',
