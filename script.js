@@ -15,26 +15,38 @@ const actions = {increment : 'INCREMENT',
 
 function subscribe(subscriber) {
     subscribers.push(subscriber)
+
+    return () => {
+        subscribers = subscribers.filter(s => s !== subscriber);
+    };
 }
 
 function tallyApp(action) {
-    switch (actions.type) {
+    switch (action.type) {
         case actions.increment :
-            return state++;
+            state++;
+            break;
         case actions.decrement :
-            return state--;
+            state--;
+            break;
         case actions.reset :
-            return state = 0;
+            state = 0;
+            break;
         default:
-            return state;
+            break;
     }
 
-    subscribers.forEach(subscriber => subscriber());
+    subscribers.forEach(subscriber => subscriber(state));
+    return state;
 }
 
 function dispatch(action) {
     tallyApp(action)
 }
+
+subscribe((newState) => {
+    console.log("State updated:", newState);
+});
 
 dispatch({ type: actions.increment });  
 dispatch({ type: actions.increment });  
