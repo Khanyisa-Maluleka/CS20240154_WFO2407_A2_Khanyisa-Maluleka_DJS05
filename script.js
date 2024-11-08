@@ -15,5 +15,8 @@ function tallyApp() {
     switch (action.state) {
         case "INCREMENT" :
             return state++;
+        case "DECREMENT" :
+            return state--;
+        
     }
 }
