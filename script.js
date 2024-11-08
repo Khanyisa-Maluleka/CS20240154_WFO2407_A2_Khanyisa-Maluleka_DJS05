@@ -4,16 +4,15 @@ function getState() {
     return state
 }
 
+const actions = {type : 'INCREMENT',
+    type : 'DECREMENT',
+    type : 'RESET'
+}
+
 console.log(getState())
 
-function increment() {
-    return state++;
+function tallyApp() {
+    switch (action.state) {
+        case ""
+    }
 }
-
-function decrement() {
-    return state--;
-}
-
-increment()
-increment()
-console.log(increment())
