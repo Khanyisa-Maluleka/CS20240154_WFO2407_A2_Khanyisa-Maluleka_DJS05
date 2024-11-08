@@ -1,8 +1,5 @@
 let state = 0;
 
-const increment = {type: 'INCREMENT'}
-const increment = {type: 'INCREMENT'}
-
 function getState() {
     return state
 }
@@ -10,5 +7,9 @@ function getState() {
 console.log(getState())
 
 function increment() {
-    
+    return state++
 }
+
+increment()
+increment()
+console.log(increment())
